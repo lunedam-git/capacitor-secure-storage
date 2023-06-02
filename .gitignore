@@ -13,7 +13,7 @@ xcuserdata
 
 # macOS files
 .DS_Store
-
+.bad-doggie
 
 
 # Based on Android gitignore template: https://github.com/github/gitignore/blob/master/Android.gitignore

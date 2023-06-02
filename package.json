@@ -25,26 +25,26 @@
     "lint.eslint": "eslint --fix --cache --ext .js,.cjs,.mjs,.ts --max-warnings 0",
     "lint.prettier": "prettier --write --cache --list-different",
     "lint.tsc": "tsc --noEmit",
-    "lint": "pnpm lint.eslint . && pnpm lint.prettier . && pnpm lint.tsc",
-    "prebuilder": "pnpm clean && pnpm extract-info",
+    "lint": "npm lint.eslint . && npm lint.prettier . && npm lint.tsc",
+    "prebuilder": "npm clean && npm extract-info",
     "builder": "tsc ${SOURCE_MAP:-} && rollup -c rollup.config.mjs",
-    "prebuild": "pnpm lint",
-    "build": "pnpm builder",
-    "build.dev": "SOURCE_MAP=--sourceMap pnpm build",
-    "watch": "nodemon --exec 'pnpm build.dev'",
+    "prebuild": "npm lint",
+    "build": "npm builder",
+    "build.dev": "SOURCE_MAP=--sourceMap npm build",
+    "watch": "nodemon --exec 'npm build.dev'",
     "open.ios": "open ios/Plugin.xcworkspace",
     "open.android": "open -b com.google.android.studio android",
     "verify.ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin -quiet && cd ..",
     "verify.android": "cd android && ./gradlew clean build test && cd ..",
-    "verify": "pnpm verify.ios && pnpm verify.android",
+    "verify": "npm verify.ios && npm verify.android",
     "prepare": "husky install",
-    "prerelease": "scripts/ensure-clean.sh && pnpm build",
+    "prerelease": "scripts/ensure-clean.sh && npm build",
     "release.preview": "commit-and-tag-version --dry-run",
-    "release": "commit-and-tag-version --commit-all && git push --follow-tags && pnpm publish"
+    "release": "commit-and-tag-version --commit-all && git push --follow-tags && npm publish"
   },
   "commit-and-tag-version": {
     "scripts": {
-      "postbump": "pnpm builder"
+      "postbump": "npm builder"
     }
   },
   "keywords": [
@@ -106,7 +106,7 @@
     "@capacitor/core": "^5.0.0",
     "@capacitor/ios": "^5.0.0"
   },
-  "pnpm": {
+  "npm": {
     "allowDeprecatedVersions": {
       "stringify-package": "1.0.1"
     }
